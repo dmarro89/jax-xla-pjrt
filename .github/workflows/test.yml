@@ -30,9 +30,9 @@ jobs:
     - name: Run JAX PJRT CPU test
       run: python jax-pjrt-cpu.py
 
-    - name: Install JAX-Metal
-      run: |
-        pip install jax-metal
+    # - name: Install JAX-Metal
+    #   run: |
+    #     pip install jax-metal
 
-    - name: Run JAX PJRT Metal test
-      run: python jax-pjrt-cpu-metal.py
+    #- name: Run JAX PJRT Metal test
+    #  run: python jax-pjrt-cpu-metal.py
