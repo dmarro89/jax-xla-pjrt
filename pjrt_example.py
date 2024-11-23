@@ -32,3 +32,19 @@ for i, x in enumerate(inputs):
     assert jnp.isclose(result, expected, atol=0.001), f"Test failed for input {x}: got {result}, expected {expected}"
 
 print("All tests passed successfully.")
+
+print("\nRunning computations on different devices:")
+for device in devices:
+    print(f"\nExecuting on Device ID {device.id} ({device.device_kind})")
+
+    # Move data on the cpu
+    x_on_device = jax.device_put(inputs, device)
+
+    # Execute the function on the CPU
+    result = f(x_on_device)
+
+    # Get the results and print them out
+    result_host = jax.device_get(result)
+
+    print(f"Inputs: {inputs}")
+    print(f"Outputs: {result_host}")
